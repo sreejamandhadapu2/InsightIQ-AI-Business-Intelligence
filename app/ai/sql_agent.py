@@ -1,8 +1,10 @@
 """
 Gemini SQL Agent
 
-Converts natural language into PostgreSQL SQL.
+Converts natural language questions into PostgreSQL SQL.
 """
+
+import re
 
 from google import genai
 
@@ -12,7 +14,7 @@ from app.prompts.sql_prompt import SYSTEM_PROMPT
 
 class SQLAgent:
     """
-    Generates SQL queries using Gemini.
+    Generates PostgreSQL SQL using Gemini.
     """
 
     def __init__(self):
@@ -21,12 +23,31 @@ class SQLAgent:
             api_key=Settings.GEMINI_API_KEY
         )
 
+    def _clean_sql(self, sql: str) -> str:
+        """
+        Clean Gemini response and return executable SQL.
+        """
+
+        # Remove markdown
+        sql = sql.replace("```sql", "")
+        sql = sql.replace("```", "")
+
+        # Remove optional explanation line
+        sql = re.sub(
+            r"^Here.*?:",
+            "",
+            sql,
+            flags=re.IGNORECASE,
+        )
+
+        return sql.strip()
+
     def generate_sql(
         self,
         question: str,
     ) -> str:
         """
-        Generate PostgreSQL SQL from a natural language question.
+        Generate SQL from a natural language question.
         """
 
         response = self.client.models.generate_content(
@@ -37,4 +58,6 @@ class SQLAgent:
             ],
         )
 
-        return response.text.strip()
+        sql = response.text
+
+        return self._clean_sql(sql)

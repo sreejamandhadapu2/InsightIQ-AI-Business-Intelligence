@@ -4,6 +4,7 @@ Data Loader
 Loads transformed DataFrames into PostgreSQL.
 """
 
+import re
 from typing import Dict
 
 import pandas as pd
@@ -16,15 +17,54 @@ class Loader:
     """
 
     def __init__(self, engine: Engine) -> None:
-        """
-        Initialize the loader.
 
-        Parameters
-        ----------
-        engine : Engine
-            SQLAlchemy PostgreSQL engine.
-        """
         self.engine = engine
+
+    @staticmethod
+    def _to_snake_case(column: str) -> str:
+        """
+        Convert CamelCase/PascalCase to snake_case.
+
+        Examples:
+            ProductKey -> product_key
+            CustomerID -> customer_id
+            SalesOrderID -> sales_order_id
+            SalesOrderDetailID -> sales_order_detail_id
+            BusinessEntityID -> business_entity_id
+        """
+
+        # Split acronym followed by normal word
+        column = re.sub(
+            r"([A-Z]+)([A-Z][a-z])",
+            r"\1_\2",
+            column,
+        )
+
+        # Split lowercase/digit followed by uppercase
+        column = re.sub(
+            r"([a-z0-9])([A-Z])",
+            r"\1_\2",
+            column,
+        )
+
+        return column.lower()
+
+    def _prepare_dataframe(
+        self,
+        dataframe: pd.DataFrame,
+    ) -> pd.DataFrame:
+        """
+        Prepare dataframe before loading.
+        """
+
+        dataframe = dataframe.copy()
+
+        dataframe.columns = [
+            self._to_snake_case(column)
+            for column in dataframe.columns
+        ]
+
+        return dataframe
 
     def load_table(
         self,
@@ -35,6 +75,8 @@ class Loader:
         """
         Load a single DataFrame into PostgreSQL.
         """
+
+        dataframe = self._prepare_dataframe(dataframe)
 
         dataframe.to_sql(
             name=table_name,

@@ -1,102 +1,65 @@
 """
 Warehouse Schema Metadata
-
-Provides schema information to the AI SQL Agent.
 """
 
 WAREHOUSE_SCHEMA = """
 DATABASE: InsightIQ Data Warehouse
 
-=========================================
 TABLE: dim_product
-=========================================
+- product_key
+- product_id
+- product_name
+- category
+- subcategory
+- color
+- standard_cost
+- list_price
 
-ProductKey
-ProductID
-ProductName
-Category
-Subcategory
-Color
-StandardCost
-ListPrice
-
-
-=========================================
 TABLE: dim_customer
-=========================================
+- customer_key
+- customer_id
+- customer_name
+- customer_type
+- city
+- state
+- country
 
-CustomerKey
-CustomerID
-CustomerName
-CustomerType
-City
-State
-Country
-
-
-=========================================
 TABLE: dim_date
-=========================================
+- date_key
+- full_date
+- day
+- month
+- month_name
+- quarter
+- year
+- week
+- day_of_week
+- is_weekend
 
-DateKey
-FullDate
-Day
-Month
-MonthName
-Quarter
-Year
-Week
-DayOfWeek
-IsWeekend
-
-
-=========================================
 TABLE: dim_territory
-=========================================
+- territory_key
+- territory_id
+- region
+- country_region_code
+- continent
 
-TerritoryKey
-TerritoryID
-Region
-CountryRegionCode
-Continent
-
-
-=========================================
 TABLE: fact_sales
-=========================================
+- sales_key
+- sales_order_id
+- sales_order_detail_id
+- product_key
+- customer_key
+- date_key
+- territory_key
+- order_qty
+- unit_price
+- unit_price_discount
+- line_total
 
-SalesKey
-SalesOrderID
-SalesOrderDetailID
-
-ProductKey
-CustomerKey
-DateKey
-TerritoryKey
-
-OrderQty
-UnitPrice
-UnitPriceDiscount
-LineTotal
-
-
-=========================================
 RELATIONSHIPS
-=========================================
 
-fact_sales.ProductKey
-    ->
-dim_product.ProductKey
-
-fact_sales.CustomerKey
-    ->
-dim_customer.CustomerKey
-
-fact_sales.DateKey
-    ->
-dim_date.DateKey
-
-fact_sales.TerritoryKey
-    ->
-dim_territory.TerritoryKey
+fact_sales.product_key -> dim_product.product_key
+fact_sales.customer_key -> dim_customer.customer_key
+fact_sales.date_key -> dim_date.date_key
+fact_sales.territory_key -> dim_territory.territory_key
 """
