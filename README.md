@@ -26,6 +26,7 @@ Transform natural language into SQL queries, interactive dashboards, AI-powered 
 🚀 **Application**
 
 https://insightiq-ai-business-intelligence-wsc6fpt7batscbbbz7czmh.streamlit.app/
+
 💻 **GitHub Repository**
 
 https://github.com/sreejamandhadapu2/InsightIQ-AI-Business-Intelligence
