@@ -120,7 +120,7 @@ This project demonstrates practical skills in:
 # 🏛 System Architecture
 
 <p align="center">
-<img src="assets/architecture.png" width="100%">
+<img src="assets/architecture.png" width="70%">
 </p>
 
 ---
@@ -166,29 +166,74 @@ InsightIQ-AI-Business-Intelligence/
 ```
 
 ---
-
 # 📷 Application Screenshots
 
 ## 🏠 Home Page
 
 <p align="center">
-<img src="assets/home.png" width="100%">
+  <img src="assets/home.png" alt="Home Page" width="100%">
 </p>
 
 ---
 
 ## 📊 Executive Dashboard
 
+### Dashboard Overview
+
 <p align="center">
-<img src="assets/executive-dashboard-1.png" width="100%">
+  <img src="assets/Executive_dashboard1.png" alt="Executive Dashboard 1" width="100%">
+</p>
+
+### Revenue & KPI Analytics
+
+<p align="center">
+  <img src="assets/executive_dashboard2.png" alt="Executive Dashboard 2" width="100%">
+</p>
+
+### Business Insights Dashboard
+
+<p align="center">
+  <img src="assets/executive_dashboard3.png" alt="Executive Dashboard 3" width="100%">
+</p>
+
+### Product & Customer Analytics
+
+<p align="center">
+  <img src="assets/executive_dashboard4.png" alt="Executive Dashboard 4" width="100%">
+</p>
+
+### Regional Performance Dashboard
+
+<p align="center">
+  <img src="assets/executive_dashboard5.png" alt="Executive Dashboard 5" width="100%">
 </p>
 
 ---
 
 ## 🤖 AI Query Interface
 
+### Natural Language Query
+
 <p align="center">
-<img src="assets/ai-query-1.png" width="100%">
+  <img src="assets/ai_query1.png" alt="AI Query 1" width="100%">
+</p>
+
+### SQL Generation
+
+<p align="center">
+  <img src="assets/ai_query2.png" alt="AI Query 2" width="100%">
+</p>
+
+### Query Results
+
+<p align="center">
+  <img src="assets/ai_query3.png" alt="AI Query 3" width="100%">
+</p>
+
+### AI Visualization
+
+<p align="center">
+  <img src="assets/ai_query4.png" alt="AI Query 4" width="100%">
 </p>
 
 ---
@@ -196,15 +241,31 @@ InsightIQ-AI-Business-Intelligence/
 ## 💡 AI Business Insights
 
 <p align="center">
-<img src="assets/business-insights.png" width="100%">
+  <img src="assets/business-insights.png" alt="Business Insights" width="100%">
 </p>
 
 ---
 
-## 📄 PDF Report
+## 🎛 Dashboard Filters
 
 <p align="center">
-<img src="assets/pdf-report-1.png" width="100%">
+  <img src="assets/dashboard-filters.png" alt="Dashboard Filters" width="100%">
+</p>
+
+---
+
+## 📄 PDF Report Generation
+
+### Report Preview
+
+<p align="center">
+  <img src="assets/pdf-report1.png" alt="PDF Report 1" width="100%">
+</p>
+
+### Downloaded Report
+
+<p align="center">
+  <img src="assets/pdf-report2.png" alt="PDF Report 2" width="100%">
 </p>
 
 ---
